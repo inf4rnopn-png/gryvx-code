@@ -1,2 +1,9 @@
-node_modules/\ndist/\ndist-electron/\nrelease/\n.env\n.env.*\n!.env.example\n.DS_Store\n*.log\n
-node_modules
+node_modules/
+dist/
+dist-electron/
+release/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log

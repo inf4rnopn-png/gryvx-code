@@ -1,21 +1,17 @@
-# GryvX Code 0.1
+# GryvX Code 0.3
 
-Cross-platform desktop foundation for GryvX Code by GryvX AI.
+## What's new
+- Editable Monaco editor tabs.
+- Save active file with Ctrl+S / Cmd+S.
+- New file creation inside the selected workspace.
+- Unsaved-change indicators.
+- Review unsaved changes in a preview before saving.
+- Workspace path validation in Electron main process.
+- File size limit of 2 MB for opening files.
+- Hidden folders, `.git`, `node_modules`, and build output excluded from explorer.
 
-## Included
-- Electron + React + TypeScript + Vite
-- Monaco editor
-- Three-panel coding workspace UI
-- Workspace folder picker and top-level file listing
-- Terminal panel preview with Ctrl+T / Cmd+T shortcut
-- Electron Builder targets for Windows, macOS and Linux
-- GitHub Actions CI matrix for all three operating systems
-
-## Not included yet
-The AI agent, Groq API requests, real terminal process execution, file editing/saving, and Git operations are future milestones. The assistant panel is a preview. Do not enter API keys into it.
-
-## Requirements
-Node.js 20+ and npm.
+## Not yet included
+The terminal panel is still a preview, not a shell. There is no AI/Groq API connection, autonomous agent, Git integration, or test runner yet. The assistant panel does not execute prompts.
 
 ## Run
 ```bash
@@ -30,20 +26,8 @@ npm run build
 npm run dist
 ```
 
-Platform targets:
-```bash
-npm run dist:win
-npm run dist:mac
-npm run dist:linux
-```
-
-Build native installers on their target operating system where practical. macOS signing/notarization requires Apple credentials.
-
-## Codespaces
-Use Codespaces for editing and CI checks. Electron GUI display may not be available in a standard browser Codespace session.
-
-## Security
-- Electron context isolation and sandbox enabled
-- Renderer has no direct Node.js access
-- No API keys included
-- Groq integration will use a secure main-process boundary in a later milestone
+## Safety
+- Renderer has no direct Node.js access.
+- File reads and writes are handled by Electron main process.
+- Paths are restricted to the selected workspace.
+- AI edits are not applied automatically; AI integration is not enabled in this release.

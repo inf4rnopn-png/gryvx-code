@@ -1,20 +1,67 @@
 {
-  "name":"gryvx-code","version":"0.1.0","private":true,
-  "description":"GryvX Code - an agentic coding workspace by GryvX AI",
-  "main":"dist-electron/main.js",
-  "scripts":{
-    "dev":"concurrently -k \"vite\" \"wait-on http://localhost:5173 && electron .\"",
-    "typecheck":"tsc --noEmit && tsc -p tsconfig.electron.json --noEmit",
-    "build":"tsc --noEmit && tsc -p tsconfig.electron.json && vite build",
-    "dist":"npm run build && electron-builder",
-    "dist:win":"npm run build && electron-builder --win",
-    "dist:mac":"npm run build && electron-builder --mac",
-    "dist:linux":"npm run build && electron-builder --linux"
+  "name": "gryvx-code",
+  "version": "0.3.0",
+  "private": true,
+  "description": "GryvX Code - an agentic coding workspace by GryvX AI",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.electron.json --noEmit",
+    "build": "npm run typecheck && tsc -p tsconfig.electron.json && vite build",
+    "dist": "npm run build && electron-builder",
+    "dist:win": "npm run build && electron-builder --win",
+    "dist:mac": "npm run build && electron-builder --mac",
+    "dist:linux": "npm run build && electron-builder --linux"
   },
-  "dependencies":{"@monaco-editor/react":"^4.7.0","lucide-react":"^0.468.0","react":"^18.3.1","react-dom":"^18.3.1"},
-  "devDependencies":{"@types/node":"^22.10.2","@types/react":"^18.3.18","@types/react-dom":"^18.3.5","@vitejs/plugin-react":"^4.3.4","concurrently":"^9.1.2","electron":"^33.2.1","electron-builder":"^25.1.8","typescript":"^5.7.2","vite":"^6.0.5","wait-on":"^8.0.1"},
-  "build":{"appId":"ai.gryvx.code","productName":"GryvX Code","directories":{"output":"release"},"files":["dist/**/*","dist-electron/**/*","package.json"],
-    "mac":{"target":["dmg","zip"],"category":"public.app-category.developer-tools"},
-    "win":{"target":["nsis","portable"]},
-    "linux":{"target":["AppImage","deb","rpm"],"category":"Development"}}
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "wait-on": "^8.0.1"
+  },
+  "build": {
+    "appId": "ai.gryvx.code",
+    "productName": "GryvX Code",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm"
+      ],
+      "category": "Development"
+    }
+  }
 }
