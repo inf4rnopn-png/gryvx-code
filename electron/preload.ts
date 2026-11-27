@@ -1,0 +1,1 @@
+import {contextBridge,ipcRenderer} from "electron";contextBridge.exposeInMainWorld("gryvx",{openWorkspace:():Promise<string|null>=>ipcRenderer.invoke("workspace:open"),listWorkspace:(folder:string):Promise<{name:string;directory:boolean}[]>=>ipcRenderer.invoke("workspace:list")});
